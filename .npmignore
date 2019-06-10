@@ -1,0 +1,6 @@
+*.test.js
+/.*
+/docs
+/reports
+/templates
+__mocks__

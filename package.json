@@ -1,0 +1,127 @@
+{
+  "name": "lifion-kinesis",
+  "version": "1.0.8",
+  "description": "Lifion client for Amazon Kinesis Data streams",
+  "keywords": [
+    "adp",
+    "amazon",
+    "api",
+    "aws",
+    "big data",
+    "client",
+    "core",
+    "kinesis",
+    "lifion"
+  ],
+  "author": "Edgardo Avilés <Edgardo.Aviles@ADP.com>",
+  "maintainers": [
+    "Mackenzie Turner <turner.mackenzie.m@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
+    "build-docs-watch": "npm-watch build-docs",
+    "eslint": "eslint . --ext .js,.json",
+    "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
+    "jest": "JEST_JUNIT_OUTPUT=./reports/junit/js-test-results.xml jest",
+    "lint": "eslint . --ext .js,.json --format junit -o ./reports/junit/js-lint-results.xml",
+    "prepare": "check-engines",
+    "test": "npm run jest -- --ci --runInBand && codecov",
+    "test-watch": "npm run jest -- --watchAll --coverageReporters=html",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
+  },
+  "devDependencies": {
+    "auto-changelog": "^1.13.0",
+    "chalk": "^2.4.2",
+    "check-engines": "^1.5.0",
+    "codecov": "^3.5.0",
+    "eslint": "^5.16.0",
+    "eslint-config-lifion": "^1.2.2",
+    "husky": "^2.4.0",
+    "jest": "^24.8.0",
+    "jest-junit": "^6.4.0",
+    "jsdoc-to-markdown": "^5.0.0",
+    "lint-staged": "^8.2.0",
+    "npm-watch": "^0.6.0",
+    "prettier": "^1.17.1",
+    "semver": "^6.1.1"
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "template": "./templates/CHANGELOG.hbs"
+  },
+  "eslintConfig": {
+    "extends": "lifion"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build-docs && lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coverageDirectory": "../reports/coverage",
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    },
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "rootDir": "lib",
+    "testEnvironment": "node"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
+  },
+  "renovate": {
+    "assignees": [
+      "eaviles",
+      "kenzable"
+    ],
+    "automerge": true,
+    "branchPrefix": "feature/renovate-",
+    "engines": {
+      "node": {
+        "enabled": false
+      }
+    },
+    "extends": [
+      "config:base"
+    ],
+    "major": {
+      "automerge": false
+    },
+    "rangeStrategy": "bump"
+  },
+  "watch": {
+    "build-docs": {
+      "patterns": [
+        "lib"
+      ]
+    }
+  }
+}
