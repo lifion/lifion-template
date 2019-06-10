@@ -1,22 +1,10 @@
 {
-  "name": "lifion-kinesis",
-  "version": "1.0.8",
-  "description": "Lifion client for Amazon Kinesis Data streams",
-  "keywords": [
-    "adp",
-    "amazon",
-    "api",
-    "aws",
-    "big data",
-    "client",
-    "core",
-    "kinesis",
-    "lifion"
-  ],
-  "author": "Edgardo Avilés <Edgardo.Aviles@ADP.com>",
-  "maintainers": [
-    "Mackenzie Turner <turner.mackenzie.m@gmail.com>"
-  ],
+  "name": "lifion-template",
+  "version": "0.0.0",
+  "description": "Lifion template for all repositories",
+  "keywords": [],
+  "author": "",
+  "maintainers": [],
   "license": "MIT",
   "main": "lib/index.js",
   "engines": {
