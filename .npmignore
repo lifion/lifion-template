@@ -1,6 +1,6 @@
 *.test.js
 /.*
+/coverage
 /docs
-/reports
 /templates
 __mocks__

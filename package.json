@@ -14,29 +14,26 @@
     "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json",
-    "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
-    "jest": "JEST_JUNIT_OUTPUT=./reports/junit/js-test-results.xml jest",
-    "lint": "eslint . --ext .js,.json --format junit -o ./reports/junit/js-lint-results.xml",
+    "format": "prettier --write '**/*.{md,js,json}' '!coverage/**/*.{js,json}'",
     "prepare": "check-engines",
-    "test": "npm run jest -- --ci --runInBand && codecov",
-    "test-watch": "npm run jest -- --watchAll --coverageReporters=html",
+    "test": "jest --ci --runInBand && codecov",
+    "test-watch": "jest --watchAll --coverageReporters=html",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "devDependencies": {
-    "auto-changelog": "^1.13.0",
+    "auto-changelog": "^1.14.1",
     "chalk": "^2.4.2",
     "check-engines": "^1.5.0",
     "codecov": "^3.5.0",
-    "eslint": "^6.0.1",
-    "eslint-config-lifion": "^1.2.3",
-    "husky": "^2.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-lifion": "^1.2.5",
+    "husky": "^3.0.0",
     "jest": "^24.8.0",
-    "jest-junit": "^6.4.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.2.0",
     "npm-watch": "^0.6.0",
     "prettier": "^1.18.2",
-    "semver": "^6.1.2"
+    "semver": "^6.2.0"
   },
   "auto-changelog": {
     "commitLimit": false,
@@ -55,7 +52,7 @@
     "collectCoverageFrom": [
       "**/*.js"
     ],
-    "coverageDirectory": "../reports/coverage",
+    "coverageDirectory": "../coverage",
     "coverageThreshold": {
       "global": {
         "statements": 100,
@@ -64,10 +61,6 @@
         "lines": 100
       }
     },
-    "reporters": [
-      "default",
-      "jest-junit"
-    ],
     "rootDir": "lib",
     "testEnvironment": "node"
   },
