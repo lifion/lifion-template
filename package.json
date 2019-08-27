@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lifion/lifion-template.git"
+    "url": "https://github.com/lifion/lifion-template.git"
   },
   "bugs": {
     "url": "https://github.com/lifion/lifion-template/issues"
@@ -65,7 +65,7 @@
   },
   "@lifion/core-commons": {
     "template": "public",
-    "updated": "2019-08-26T23:56:59.808Z",
+    "updated": "2019-08-27T00:12:46.780Z",
     "version": "2.3.3"
   }
 }
