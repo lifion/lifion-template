@@ -29,9 +29,8 @@
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --ignore-pattern='!.*.*'",
     "format": "prettier --write '**/*.{md,js,json}' '!coverage/**/*.{js,json}'",
-    "jest": "jest -c ./.jest.json",
     "prepare": "check-engines",
-    "test": "npm run jest -- --ci --runInBand && codecov",
+    "test": "jest -c ./.jest.json",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {},
@@ -53,7 +52,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run build-docs && lint-staged",
-      "pre-push": "npm run eslint && npm run jest"
+      "pre-push": "npm run eslint && npm test"
     }
   },
   "watch": {
@@ -65,7 +64,7 @@
   },
   "@lifion/core-commons": {
     "template": "public",
-    "updated": "2019-08-27T00:12:46.780Z",
-    "version": "2.3.3"
+    "updated": "2019-11-11T21:03:54.741Z",
+    "version": "2.3.4"
   }
 }
