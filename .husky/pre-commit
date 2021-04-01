@@ -1,7 +1,14 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo "1. Build documentation"
 npm run build-docs
+
+echo "2. Check format of staged documents"
 npx lint-staged
+
+echo "3. Run eslint"
 npm run eslint
+
+echo "4. Run unit tests"
 npm test
