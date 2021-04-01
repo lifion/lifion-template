@@ -1,16 +1,20 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-RED='\035[1;35m'
-NC='\033[0m' # No Color
-printf "${RED}1. Build documentation${NC}"
+purple=`tput setaf 5`
+bold=`tput bold`
+reset=`tput sgr0`
+
+echo "${purple}${bold}--- Husky pre-commit checks ---${reset}\n"
+
+echo "${purple}${bold}1. Build documentation${reset}"
 npm run build-docs
 
-printf "${RED}2. Check format of staged documents${NC}"
+echo  "${purple}${bold}2. Check format of staged documents${reset}"
 npx lint-staged
 
-printf "${RED}3. Run eslint${NC}"
+echo  "${purple}${bold}3. Run eslint${reset}"
 npm run eslint
 
-printf "${RED}4. Run unit tests${NC}"
+echo  "${purple}${bold}4. Run unit tests${reset}"
 npm test
