@@ -1,14 +1,16 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "1. Build documentation"
+RED='\035[1;35m'
+NC='\033[0m' # No Color
+printf "${RED}1. Build documentation${NC}"
 npm run build-docs
 
-echo "2. Check format of staged documents"
+printf "${RED}2. Check format of staged documents${NC}"
 npx lint-staged
 
-echo "3. Run eslint"
+printf "${RED}3. Run eslint${NC}"
 npm run eslint
 
-echo "4. Run unit tests"
+printf "${RED}4. Run unit tests${NC}"
 npm test
