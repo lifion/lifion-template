@@ -1,5 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+echo  "${purple}${bold}3. Run eslint${reset}"
 npm run eslint
+
+echo  "${purple}${bold}4. Run unit tests${reset}"
 npm test
