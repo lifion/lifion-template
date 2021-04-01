@@ -2,11 +2,8 @@
 . "$(dirname "$0")/_/husky.sh"
 
 purple=`tput setaf 5`
-white=`tput setab 7`
 bold=`tput bold`
 reset=`tput sgr0`
-
-echo "${white}${purple}${bold}--- Husky pre-commit checks ---${reset}\n"
 
 echo "${purple}${bold}1. Build documentation${reset}"
 npm run build-docs
