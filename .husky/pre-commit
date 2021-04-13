@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run build-docs && npx lint-staged && npm run eslint && npm test
+npx --no-install lint-staged && npm run build-docs
